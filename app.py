@@ -95,13 +95,17 @@ def salva_file_telegram(file_content, nome_file, content_type, mittente):
 # ─── WEBHOOK ROUTES ───────────────────────────────────────────────────────────
 @app.route("/webhook", methods=["GET"])
 def verify():
-    # Questa sezione risolve l'errore di convalida di Meta
+    # Meta invia questi parametri per verificare l'URL
     mode = request.args.get("hub.mode")
     token = request.args.get("hub.verify_token")
     challenge = request.args.get("hub.challenge")
-    if mode == "subscribe" and token == VERIFY_TOKEN:
+
+    # Verifica che il token sia quello corretto
+    if mode == "subscribe" and token == "praticaok2024":
+        # È fondamentale restituire il 'challenge' e il codice 200
         return challenge, 200
-    return "Verifica fallita", 403
+    
+    return "Token di verifica non valido", 403
 
 @app.route("/webhook", methods=["POST"])
 def webhook():
