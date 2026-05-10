@@ -4,7 +4,7 @@ const axios = require('axios'); // Serve per "sparare" la risposta verso WhatsAp
 const app = express().use(bodyParser.json());
 
 const token = "progetto2024"; 
-const WHATSAPP_TOKEN = "IL_TUO_TEMPORARY_ACCESS_TOKEN"; // Prendilo dalla dashboard di Meta
+const WHATSAPP_TOKEN = "EAA8G41qOXgUBRe794iR13bUf6lnfbgpCoUAluznXDkhCg9udIA8JjjnBJaZC6K0iL16dimEZBZCm2Yr6wV4xezI3QRn62VLC8XMeDZAZCURMAx9ep1ZBgVZAmSG0JjKXlyvwJESgrrQBHsl0yH3wmLtbOUe3fc30EO0noKFjSnrQxBOuTke1NHV4XBzYfMlGQSWLStmxmYgbieEE8uOJagZAZBTCnASifDqFYNkazQd0HBmogGZAre58oUYq1ysZBy1XNqou0aAdHgsEpeFyTHzXahO81US"; // Prendilo dalla dashboard di Meta
 
 app.get('/webhook', (req, res) => {
     let mode = req.query['hub.mode'];
